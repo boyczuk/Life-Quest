@@ -1,15 +1,25 @@
-// pages/api/generateQuest.js
 import OpenAI from "openai";
 
 export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const { prompt } = req.body;
+
+  if (!prompt) {
+    return res.status(400).json({ error: "Prompt is required" });
+  }
+
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: "Write a haiku about recursion in programming." },
+        { role: "system", content: "You are a system designed to generate tasks in steps the way quests are laid out in Skyrim the video game." },
+        { role: "user", content: "Generate a title, and steps to achieve the following goal or task." },
+        { role: "user", content: prompt },
       ],
     });
 

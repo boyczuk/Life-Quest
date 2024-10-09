@@ -2,13 +2,21 @@
 
 import { useEffect, useState } from "react";
 
-export default function QuestGeneration() {
+export default function QuestGeneration({ userInput }) {
   const [response, setResponse] = useState("");
 
   useEffect(() => {
     const fetchCompletion = async () => {
+      if (!userInput) return;
+
       try {
-        const res = await fetch("/api/generateQuest");
+        const res = await fetch("/api/generateQuest", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ prompt: userInput }),
+        });
         const data = await res.json();
         if (res.ok) {
           setResponse(data.response);
@@ -21,12 +29,12 @@ export default function QuestGeneration() {
     };
 
     fetchCompletion();
-  }, []);
+  }, [userInput]);
 
   return (
     <div>
       <h2>Generated Quest</h2>
-      <p>{response}</p>
+      <p>{response || "Waiting for quest generation..."}</p>
     </div>
   );
 }

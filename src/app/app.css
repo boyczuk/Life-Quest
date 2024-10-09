@@ -1,0 +1,75 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #2a3b2e;
+  }
+  
+  .description {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .quest-form {
+    margin-bottom: 20px;
+  }
+  
+  .quest-input {
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #2a3b2e;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .quest-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-left: 10px;
+    background-color: #2a3b2e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .quest-button:hover {
+    background-color: #365741;
+  }
+  
+  .generated-quest {
+    text-align: left;
+    margin-top: 20px;
+    background: #eef0e4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .generated-quest-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .generated-quest-step {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    font-size: 1.1em;
+  }
