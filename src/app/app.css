@@ -60,16 +60,33 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
   }
   
   .generated-quest-title {
     font-weight: bold;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #2a3b2e;
+    border-bottom: 2px solid #2a3b2e;
+    padding-bottom: 10px;
   }
   
   .generated-quest-step {
-    margin-bottom: 10px;
-    padding-left: 15px;
+    margin-bottom: 15px;
+    padding-left: 20px;
     font-size: 1.1em;
+    position: relative;
   }
+  
+  .generated-quest-step::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #2a3b2e;
+    font-size: 1.5em;
+    line-height: 1;
+    padding-right: 10px;
+  }
+  

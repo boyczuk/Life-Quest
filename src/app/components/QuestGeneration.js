@@ -31,10 +31,15 @@ export default function QuestGeneration({ userInput }) {
     fetchCompletion();
   }, [userInput]);
 
+  // Split response into title and steps
+  const [title, ...steps] = response.split("\n").filter(line => line.trim() !== "");
+
   return (
-    <div>
-      <h2>Generated Quest</h2>
-      <p>{response || "Waiting for quest generation..."}</p>
+    <div className="generated-quest">
+      <h3 className="generated-quest-title">{title}</h3>
+      {steps.map((step, index) => (
+        <p key={index} className="generated-quest-step">{step}</p>
+      ))}
     </div>
   );
 }
